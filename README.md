@@ -12,16 +12,18 @@
 他のゲーム好きな人にもこのサイトで同じジャンルが好きなユーザーのゲームレビューを見て購入の足掛かりになればと思いこのテーマにしました。
 
 ### ターゲットユーザ
-<...>
+ゲームのプレイが好きな人、またそのゲームの評価の共有したい人。
+もしくは、他人のゲームレビューを閲覧したい人。
 
 ### 主な利用シーン
-<...>
+自分のプレイしたゲームが気に入り、その評価・感想を投稿し共有したいとき。
+また気になるゲームの他人の評価を見たいとき。
 
 ## 設計書
 <...>
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+<https://docs.google.com/spreadsheets/d/1XBXF4JvnsxlpnuhU0YihOzoRiMn7BzZl2-of4Y93tW4/edit#gid=0>
 
 ## 開発環境
 - OS：Linux(CentOS)
