@@ -26,7 +26,9 @@
 ・ER図<br>
 https://github.com/webcamp-ultimateTKG/Nagano_cake/files/8010290/Gamers.review.2.5.3.50.21.pdf<br>
 ・テーブル定義書<br>
-https://docs.google.com/spreadsheets/d/1zPQ4GIRmUBuKgc73aacsFCbP4PLk49pUrESMadUmn2Y/edit#gid=1942254049
+https://docs.google.com/spreadsheets/d/1zPQ4GIRmUBuKgc73aacsFCbP4PLk49pUrESMadUmn2Y/edit#gid=1942254049<br>
+・アプリケーション詳細設計<br>
+https://docs.google.com/spreadsheets/d/178-1ANax7lXIeQzBzF7-nBjPci1gpAdn5bAM6WSHeeE/edit#gid=1031934256
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1XBXF4JvnsxlpnuhU0YihOzoRiMn7BzZl2-of4Y93tW4/edit#gid=0>
 
