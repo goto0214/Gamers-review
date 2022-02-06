@@ -23,8 +23,9 @@
 また気になるゲームの他人の評価を見たいとき。
 
 ## 設計書
-https://github.com/webcamp-ultimateTKG/Nagano_cake/files/8010290/Gamers.review.2.5.3.50.21.pdf
-・テーブル定義書
+・ER図<br>
+https://github.com/webcamp-ultimateTKG/Nagano_cake/files/8010290/Gamers.review.2.5.3.50.21.pdf<br>
+・テーブル定義書<br>
 https://docs.google.com/spreadsheets/d/1zPQ4GIRmUBuKgc73aacsFCbP4PLk49pUrESMadUmn2Y/edit#gid=1942254049
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1XBXF4JvnsxlpnuhU0YihOzoRiMn7BzZl2-of4Y93tW4/edit#gid=0>
