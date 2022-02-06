@@ -23,7 +23,8 @@
 また気になるゲームの他人の評価を見たいとき。
 
 ## 設計書
-<...>
+・テーブル定義書
+https://docs.google.com/spreadsheets/d/1zPQ4GIRmUBuKgc73aacsFCbP4PLk49pUrESMadUmn2Y/edit#gid=1942254049
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1XBXF4JvnsxlpnuhU0YihOzoRiMn7BzZl2-of4Y93tW4/edit#gid=0>
 
