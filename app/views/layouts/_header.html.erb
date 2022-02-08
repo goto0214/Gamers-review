@@ -1,0 +1,46 @@
+<header class="main_header bg-info px-5 py-3">
+  <div class="container col-lg-12 col-md-12 col-sm-12">
+    <div class="row">
+      <div class="d-flex flex-wrap" style="width: 100%;">
+        <%= link_to "Gamers-Review", root_path, class: "h2 text-white" %>
+        <% if user_signed_in? %>
+          <ul>
+            <li>ようこそ、<%= current_user.name %>さん！</li>
+          </ul>
+        <% end %>
+        <ul class="nav list-unstyled float-right ml-auto float-right">
+          <% if user_signed_in? %>
+            <li>aaa</li>
+            <li>rrr</li>
+            <li>ddd</li>
+          <% elsif admin_signed_in? %>
+            <li>dddd</li>
+            <li>aaaa</li>
+            <li>ddd</li>
+          <% else %>
+            <li class="list-inline-item">
+              <%= link_to about_path, class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-info-circle"><span class="font">About</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to "#", class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-info-circle"><span class="font">レビューー覧</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to new_user_registration_path, class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fas fa-user-plus"><span class="font">新規登録</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+            <%= link_to  new_user_session_path, class: "btn btn-md btn-outline-light" do %>
+              <i class="fas fa-sign-in-alt"><span class="font">ログイン</span></i>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
