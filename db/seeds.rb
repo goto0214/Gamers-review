@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Genre.create(genre_name: 'FPS')
+Genre.create(genre_name: 'コマンドRPG')
+Genre.create(genre_name: 'シュミレーションRPG')
+Genre.create(genre_name: 'アクションRPG')
+Genre.create(genre_name: 'オープンワールド')
