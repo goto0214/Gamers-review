@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get "about" => "user/homes#about", as: "about"
 
 
+  scope module: :user do
+    resources :reviews
+  end
+
+
+
 
    # 管理者用ルーティング
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
