@@ -12,7 +12,11 @@
           <% if user_signed_in? %>
             <li>aaa</li>
             <li>rrr</li>
-            <li>ddd</li>
+            <li>
+            <%= link_to  destroy_user_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
+              <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
+            <% end %>
+          </li>
           <% elsif admin_signed_in? %>
             <li>dddd</li>
             <li>aaaa</li>
