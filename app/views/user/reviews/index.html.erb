@@ -16,8 +16,56 @@
     </div>
   </div>
   <div class="row">
-    <% @reviews.each do |review| %>
-      <%= review.title %>
-    <% end %>
+    <div class="col-lg-12 col-md-12">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>ジャンル</th>
+            <th class="text-center">評価</th>
+            <th>投稿者</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <%= link_to review_path(review) do %>
+                  <%= review.title %>
+                <% end %>
+              </td>
+              <td><%= link_to review.genre.genre_name, reviews_path(genre_id: review.genre.id) %></td>
+              <td class="evaluation" data-score="<%= review.evaluation %>"></td>
+              <td><%= review.user.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @reviews %>
+    </div>
+  </div>
+  <div class="row mt-5 border py-3">
+    <div class="col-12 mb-5">
+      <h3 class="text-center">
+        <span class="badge badge-secondary badge-pill">カテゴリ一覧</span>
+        </h3>
+    </div>
+    <div class="col-md-12 col-lg-12 d-flex flex-wrap mb-5">
+      <% @genres.each do |genre| %>
+        <div class="col-lg-3 col-md-4 col-sm-3">
+          ・<%= link_to genre.genre_name, reviews_path(genre_id: genre.id) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+<script>
+  $('.evaluation').empty();
+  $('.evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>

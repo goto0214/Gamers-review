@@ -3,16 +3,25 @@
     <div class="row">
       <div class="d-flex flex-wrap" style="width: 100%;">
         <%= link_to "Gamers-Review", root_path, class: "h2 text-white link" %>
-        <% if user_signed_in? %>
-          <ul>
-            <li>ようこそ、<%= current_user.name %>さん！</li>
-          </ul>
-        <% end %>
         <ul class="nav list-unstyled ml-auto float-right">
           <% if user_signed_in? %>
-            <li>aaa</li>
-            <li>rrr</li>
-            <li>
+            <li class="list-inline-item text-white h4 mr-5 pt-1">ようこそ、<%= current_user.name %>さん！</li>
+            <li class="list-inline-item">
+              <%= link_to "#", class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-user"><span class="font">プロフィール編集</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to new_review_path, class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-plus"><span class="font">レビュー投稿</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to reviews_path, class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-list"><span class="font">レビューー覧</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
             <%= link_to  destroy_user_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
             <% end %>

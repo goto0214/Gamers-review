@@ -12,7 +12,7 @@
           <%= f.collection_select :genre_id, @genres, :id, :genre_name, include_blank: "選択して下さい", class: "form-control" %>
         </div>
         <div>
-          <%= f.label :image_id, "画像", class: "col-form-label offset-sm-3" %>
+          <%= f.label :image, "画像", class: "col-form-label offset-sm-3" %>
           <%= f.attachment_field :image, class: "file" %>
         </div>
         <div>

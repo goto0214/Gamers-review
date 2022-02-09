@@ -13,7 +13,20 @@ class User::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+
+    @genres = Genre.all
+    #ジャンルの名前リンクから飛んできたかの確認
+    if params[:genre_id]
+      genre = Genre.find(params[:genre_id])
+      @reviews = Review.where(genre_id:genre.id).page(params[:page]).per(15).order(created_at: :desc)
+    else
+    @reviews = Review.page(params[:page]).per(15).order(created_at: :desc)
+    end
+
+  end
+
+  def show
+    @review = Review.find(params[:id])
   end
 
   def edit
