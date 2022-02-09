@@ -15,4 +15,9 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <% @reviews.each do |review| %>
+      <%= review.title %>
+    <% end %>
+  </div>
 </div>
