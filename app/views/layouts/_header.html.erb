@@ -25,11 +25,28 @@
             <%= link_to  destroy_user_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
             <% end %>
-          </li>
+            </li>
           <% elsif admin_signed_in? %>
-            <li>dddd</li>
-            <li>aaaa</li>
-            <li>ddd</li>
+            <li class="list-inline-item">
+              <%= link_to reviews_path, class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-list"><span class="font">レビューー覧</span></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+            <%= link_to  admin_genres_path, class: "btn btn-md btn-outline-light" do %>
+              <i class="fas fa-sign-out-alt"><span ="font">ジャンル一覧</span></i>
+            <% end %>
+            </li>
+            <li class="list-inline-item">
+            <%= link_to  "#", class: "btn btn-md btn-outline-light" do %>
+              <i class="fas fa-sign-out-alt"><span ="font">通報一覧</span></i>
+            <% end %>
+            </li>
+            <li class="list-inline-item">
+            <%= link_to  destroy_admin_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
+              <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
+            <% end %>
+            </li>
           <% else %>
             <li class="list-inline-item">
               <%= link_to about_path, class: "btn btn-md btn-outline-light mr-2" do %>
