@@ -28,7 +28,7 @@
             </li>
           <% elsif admin_signed_in? %>
             <li class="list-inline-item">
-              <%= link_to reviews_path, class: "btn btn-md btn-outline-light mr-2" do %>
+              <%= link_to reviews_path, class: "btn btn-md btn-outline-light" do %>
                 <i class="fa fa-list"><span class="font">レビューー覧</span></i>
               <% end %>
             </li>
@@ -38,7 +38,7 @@
             <% end %>
             </li>
             <li class="list-inline-item">
-            <%= link_to  "#", class: "btn btn-md btn-outline-light" do %>
+            <%= link_to  "#", class: "btn btn-md btn-outline-danger" do %>
               <i class="fas fa-sign-out-alt"><span ="font">通報一覧</span></i>
             <% end %>
             </li>
