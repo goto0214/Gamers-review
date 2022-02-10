@@ -31,6 +31,7 @@ class User::ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
@@ -50,6 +51,7 @@ class User::ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:user_id, :genre_id, :title, :image, :good_point, :bad_point, :evaluation)
   end
+
 
 end
 

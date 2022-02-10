@@ -4,11 +4,52 @@
       <h3 class="text-center mb-4"><span class="badge badge-secondary">レビュー詳細</span></h3>
       <!--画像が添付されていれば表示する-->
       <% unless @review.image_id.nil? %>
-        <div class="mx-auto">
+        <div class="mx-auto bg-light">
           <%= attachment_image_tag @review, :image, size: "800x500", class: "d-block mx-auto" %>
         </div>
       <% end %>
       <h2 class="text-center"><strong><%= @review.title%></strong></h2>
     </div>
   </div>
+  <div class="row">
+    <div class="d-flex flex-wrap align-items-center col-md-12">
+      <h4 class="text-center col-md-3"><i class="fa fa-smile text-warning"></i>良かったところ<i class="fa fa-smile text-warning"></i></h4>
+      <p class="ml-5"><%=safe_join(@review.good_point.split("\n"),tag(:br))%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class=" d-flex flex-wrap align-items-center col-md-12">
+      <h4 class="text-center col-md-3"><i class="fa fa-frown text-primary"></i>残念だったところ<i class="fa fa-frown text-primary"></i></h4>
+      <p class="ml-5"><%=safe_join(@review.bad_point.split("\n"),tag(:br))%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="text-center col-12">
+      <h4>総合評価</h4>
+      <div class="evaluation" data-score="<%= @review.evaluation %>"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% if user_signed_in? || admin_signed_in? %>
+        <% if @review.user_id == current_user %>
+          <%= link_to "編集する", edit_review_path %>
+          <%= link_to "削除する", review_path, method: :delete %>
+        <% elsif admin_signed_in? %>
+          <%= link_to "削除する", review_path, method: :delete %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+<!--評価の☆マークのJavScript-->
+<script>
+  $('.evaluation').empty();
+  $('.evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
