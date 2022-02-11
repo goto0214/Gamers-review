@@ -32,10 +32,28 @@
   <div class="row">
     <div class="col-md-12">
       <% if @review.user == current_user %>
-        <%= link_to "編集する", edit_review_path %>
-        <%= link_to "削除する", review_path, method: :delete %>
+        <%= link_to "投稿を編集する", edit_review_path %>
+        <%= link_to "投稿を削除する", review_path, method: :delete %>
       <% elsif admin_signed_in? %>
-        <%= link_to "削除する", review_path, method: :delete %>
+        <%= link_to "投稿を削除する", review_path, method: :delete %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% @review.comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= comment.comment %>
+        <% if comment.user == current_user %>
+        <div>
+          <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete %>
+        </div>
+        <% end %>
+      <% end %>
+
+      <%= form_with(model:[@review, @comments], local: true) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
       <% end %>
     </div>
   </div>

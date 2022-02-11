@@ -30,6 +30,7 @@ class User::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @comments = Comment.new
   end
 
   def edit
