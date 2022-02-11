@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   scope module: :user do
     resources :reviews do
       resources :comments, only: [:create, :destroy]
+      resources :reports, only: [:create, :destroy]
     end
   end
 
