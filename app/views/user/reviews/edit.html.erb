@@ -23,9 +23,13 @@
           <%= f.label :bad_point, "残念だったところ", class: "col-form-label offset-sm-3" %>
           <%= f.text_area :bad_point, placeholder: "３０文字以上"%>
         </div>
+        <div>
+          <%= f.label :tag_list, "タグ（半角の,で区切ることで複数個登録できます。）" %>
+          <%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %>
+        </div>
         <div id="evaluate_stars">
-    <label>評価</label>
-  </div>
+          <label>評価</label>
+        </div>
         <div>
           <%= f.submit "投稿する" %>
         </div>

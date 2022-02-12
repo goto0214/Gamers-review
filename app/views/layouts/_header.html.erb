@@ -3,75 +3,75 @@
     <div class="row">
       <div class="d-flex flex-wrap" style="width: 100%;">
         <% if admin_signed_in? %>
-          <%= link_to "Gamers-Review", admin_root_path, class: "h2 text-white link" %>
+          <%= link_to "Gamers-Review", admin_root_path, class: "h2 text-dark link font1" %>
         <% else %>
-          <%= link_to "Gamers-Review", root_path, class: "h2 text-white link" %>
+          <%= link_to "Gamers-Review", root_path, class: "h2 text-dark link font1" %>
         <% end %>
         <ul class="nav list-unstyled ml-auto float-right">
           <% if user_signed_in? %>
-            <li class="list-inline-item text-white h4 mr-5 pt-1">ようこそ、<%= current_user.name %>さん！</li>
+            <li class="list-inline-item text-white h4 mr-5 pt-1 font2">ようこそ、<%= current_user.name %>さん！</li>
             <li class="list-inline-item">
               <%= link_to user_path(current_user), class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-user"><span class="font">マイプロフィール</span></i>
+                <i class="fa fa-user"><span class="font2">マイプロフィール</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
               <%= link_to new_review_path, class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-plus"><span class="font">レビュー投稿</span></i>
+                <i class="fa fa-plus"><span class="font2">レビュー投稿</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
               <%= link_to reviews_path, class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-list"><span class="font">レビューー覧</span></i>
+                <i class="fa fa-list"><span class="font2">レビューー覧</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
             <%= link_to  destroy_user_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
-              <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
+              <i class="fas fa-sign-out-alt"><span class="font2">ログアウト</span></i>
             <% end %>
             </li>
           <% elsif admin_signed_in? %>
             <li class="list-inline-item">
               <%= link_to reviews_path, class: "btn btn-md btn-outline-light" do %>
-                <i class="fa fa-list"><span class="font">レビューー覧</span></i>
+                <i class="fa fa-list"><span class="font2">レビューー覧</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
             <%= link_to  admin_genres_path, class: "btn btn-md btn-outline-light" do %>
-              <i class="fas fa-sign-out-alt"><span ="font">ジャンル一覧</span></i>
+              <i class="fas fa-sign-out-alt"><span class="font2">ジャンル一覧</span></i>
             <% end %>
             </li>
             <% if Report.exists? %>
               <li class="list-inline-item">
               <%= link_to   admin_reports_index_path, class: "btn btn-md btn-outline-danger" do %>
-                <i class="fas fa-sign-out-alt"><span ="font">通報一覧</span></i>
+                <i class="fas fa-sign-out-alt"><span class="font2">通報一覧</span></i>
               <% end %>
               </li>
             <% end %>
             <li class="list-inline-item">
             <%= link_to  destroy_admin_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
-              <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
+              <i class="fas fa-sign-out-alt"><span class="font2">ログアウト</span></i>
             <% end %>
             </li>
           <% else %>
             <li class="list-inline-item">
               <%= link_to about_path, class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-info-circle"><span class="font">About</span></i>
+                <i class="fa fa-info-circle"><span class="font2">About</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
               <%= link_to reviews_path, class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-info-circle"><span class="font">レビューー覧</span></i>
+                <i class="fa fa-info-circle"><span class="font2">レビューー覧</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
               <%= link_to new_user_registration_path, class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fas fa-user-plus"><span class="font">新規登録</span></i>
+                <i class="fas fa-user-plus"><span class="font2">新規登録</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
             <%= link_to  new_user_session_path, class: "btn btn-md btn-outline-light" do %>
-              <i class="fas fa-sign-in-alt"><span class="font">ログイン</span></i>
+              <i class="fas fa-sign-in-alt"><span class="font2">ログイン</span></i>
             <% end %>
           </li>
           <% end %>

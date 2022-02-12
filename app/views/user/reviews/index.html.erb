@@ -32,6 +32,7 @@
           <tr>
             <th>タイトル</th>
             <th>ジャンル</th>
+            <th>関連タグ</th>
             <th>総合評価</th>
             <th>投稿者</th>
           </tr>
@@ -45,6 +46,7 @@
                 <% end %>
               </td>
               <td><%= link_to review.genre.genre_name, reviews_path(genre_id: review.genre.id) %></td>
+              <td><%= render 'user/reviews/tag_list', tag_list: review.tag_list %></td>
               <td class="evaluation" data-score="<%= review.evaluation %>"></td>
               <td><%= review.user.name %></td>
             </tr>

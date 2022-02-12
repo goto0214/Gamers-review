@@ -23,6 +23,8 @@ class User::ReviewsController < ApplicationController
       #検索窓で入力された値をkeywordに代入
       keyword = params[:keyword]
       @reviews = Review.search(keyword).page(params[:page]).per(15)
+    elsif params[:tag_name]
+      @reviews = Review.tagged_with("#{params[:tag_name]}").page(params[:page]).per(15)
     else
     @reviews = Review.page(params[:page]).per(15).order(created_at: :desc)
     end
@@ -56,7 +58,7 @@ class User::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:user_id, :genre_id, :title, :image, :good_point, :bad_point, :evaluation)
+    params.require(:review).permit(:user_id, :genre_id, :title, :image, :good_point, :bad_point, :evaluation, :tag_list)
   end
 
   def user_or_admin
