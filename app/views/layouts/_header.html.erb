@@ -2,7 +2,11 @@
   <div class="container col-lg-12 col-md-12 col-sm-12">
     <div class="row">
       <div class="d-flex flex-wrap" style="width: 100%;">
-        <%= link_to "Gamers-Review", root_path, class: "h2 text-white link" %>
+        <% if admin_signed_in? %>
+          <%= link_to "Gamers-Review", admin_root_path, class: "h2 text-white link" %>
+        <% else %>
+          <%= link_to "Gamers-Review", root_path, class: "h2 text-white link" %>
+        <% end %>
         <ul class="nav list-unstyled ml-auto float-right">
           <% if user_signed_in? %>
             <li class="list-inline-item text-white h4 mr-5 pt-1">ようこそ、<%= current_user.name %>さん！</li>
