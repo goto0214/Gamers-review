@@ -13,7 +13,7 @@ class Review < ApplicationRecord
   end
 
   def reported_by?(user)
-    reports.where(user_id: user.id).exists?
+     reports.where(user_id: user.id).exists?
   end
 
 

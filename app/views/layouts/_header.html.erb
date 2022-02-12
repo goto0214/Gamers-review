@@ -37,11 +37,13 @@
               <i class="fas fa-sign-out-alt"><span ="font">ジャンル一覧</span></i>
             <% end %>
             </li>
-            <li class="list-inline-item">
-            <%= link_to  "#", class: "btn btn-md btn-outline-danger" do %>
-              <i class="fas fa-sign-out-alt"><span ="font">通報一覧</span></i>
+            <% if Report.exists? %>
+              <li class="list-inline-item">
+              <%= link_to   admin_reports_index_path, class: "btn btn-md btn-outline-danger" do %>
+                <i class="fas fa-sign-out-alt"><span ="font">通報一覧</span></i>
+              <% end %>
+              </li>
             <% end %>
-            </li>
             <li class="list-inline-item">
             <%= link_to  destroy_admin_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
