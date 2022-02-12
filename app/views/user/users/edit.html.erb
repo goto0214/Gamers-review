@@ -1,0 +1,26 @@
+<h2>Sign up</h2>
+
+<%= form_with model: @user, url: user_path, local: true do |f| %>
+
+  <div>
+    <%= f.label :profile_image, "プロフィール画像", class: "col-form-label offset-sm-3" %>
+    <%= f.attachment_field :profile_image, class: "file" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit "変更" %>
+  </div>
+<% end %>
+

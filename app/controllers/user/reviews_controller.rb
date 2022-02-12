@@ -1,5 +1,5 @@
 class User::ReviewsController < ApplicationController
-  before_action :authenticate_user!, Userpt: [:index, :show, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :destroy]
   before_action :user_or_admin, only: [:destroy]
   def new
     @review = Review.new

@@ -11,8 +11,8 @@
           <% if user_signed_in? %>
             <li class="list-inline-item text-white h4 mr-5 pt-1">ようこそ、<%= current_user.name %>さん！</li>
             <li class="list-inline-item">
-              <%= link_to "#", class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-user"><span class="font">プロフィール編集</span></i>
+              <%= link_to user_path(current_user), class: "btn btn-md btn-outline-light mr-2" do %>
+                <i class="fa fa-user"><span class="font">マイプロフィール</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
