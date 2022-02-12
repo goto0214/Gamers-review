@@ -1,5 +1,6 @@
 class User::ReviewsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show, :destroy]
+  before_action :user_or_admin, only: [:destroy]
   def new
     @review = Review.new
     @genres = Genre.all
@@ -56,6 +57,12 @@ class User::ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:user_id, :genre_id, :title, :image, :good_point, :bad_point, :evaluation)
+  end
+
+  def user_or_admin
+    unless user_signed_in? || admin_signed_in?
+      redirect_to root_path
+    end
   end
 
 
