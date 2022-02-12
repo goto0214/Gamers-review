@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     get "reports" => "reports#index", as: "reports_index"
+    resources :users, only: [:index, :show, :destroy]
   end
 
 

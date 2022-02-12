@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :admin_signed_in_or_root
 
   def index
+    @users = User.page(params[:page]).per(15)
   end
 
   def show

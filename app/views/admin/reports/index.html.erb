@@ -2,9 +2,9 @@
   <div class="row mb-5">
     <div class="col-12">
       <div class="d-flex flex-wrap">
-        <h3>
+        <h3 class="text-danger">
           <i class="fas fa-lightbulb text-warning"></i>
-          レビュー
+          通報されたレビュー
           <i class="fas fa-lightbulb text-warning"></i>
         </h3>
       </div>
@@ -29,7 +29,23 @@
                   <%= report.review.title %>
                 <% end %>
               </td>
+              <td><%= report.review.genre.genre_name %></td>
+              <td class="evaluation" data-score="<%= report.review.evaluation %>"></td>
+              <td><%= report.review.user.name %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+    </div>
+  </div>
+<!--評価の☆マークのJavScript-->
+<script>
+  $('.evaluation').empty();
+  $('.evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
