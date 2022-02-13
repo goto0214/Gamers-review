@@ -16,6 +16,9 @@
   background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
 }
 
+
+//↓通報ボタン
+
 .clicktxt {
 color:#ffffff;
 background-color: red;
@@ -43,4 +46,12 @@ opacity: 0;
 padding: 0px 25px 0px 25px;
 height: auto;
 opacity: 1;
+}
+
+//↓レビュー詳細画面のタイトル
+.box{
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
 }

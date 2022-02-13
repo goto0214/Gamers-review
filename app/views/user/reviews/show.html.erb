@@ -1,88 +1,96 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-lg-12 col-md-12">
-      <h1 class="text-center mb-4"><span class="badge badge-secondary">レビュー詳細</span></h1>
+    <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+      <h1 class="text-center mb-4"><span class="badge badge-secondary font3">レビュー詳細</span></h1>
       <!--画像が添付されていれば表示する-->
       <% unless @review.image_id.nil? %>
-        <div class="mx-auto bg-light mb-5">
-          <%= attachment_image_tag @review, :image, size: "800x500", class: "d-block mx-auto" %>
+        <div class="mx-auto bg-light mb-5 col-md-12 col-sm-12">
+          <%= attachment_image_tag @review, :image, size: "700x500", class: "d-block mx-auto" %>
         </div>
       <% end %>
-      <h2 class="text-center"><strong><%= @review.title%></strong></h2>
+      <h2 class="text-center"><strong class="border px-3 box" font3><%= @review.title%></strong></h2>
     </div>
   </div>
-  <div class="row">
+  <div class="row mb-5">
     <div class="d-flex flex-wrap align-items-center col-md-12">
-      <div class="col-md-3">
-        <h4 class="text-center"><i class="fa fa-smile text-warning"></i>良かったところ<i class="fa fa-smile text-warning"></i></h4>
+      <div class="col-md-5 col-lg-3">
+        <h4 class="text-center font3"><i class="fa fa-smile text-warning"></i>良かったところ<i class="fa fa-smile text-warning"></i></h4>
       </div>
-      <div class="col-md-9 text-break">
-        <p class="ml-5"><%=safe_join(@review.good_point.split("\n"),tag(:br))%></p>
+      <div class="col-md-7 col-lg-9">
+        <p class="ml-5 text-break font3"><%=safe_join(@review.good_point.split("\n"),tag(:br))%></p>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row my-5">
     <div class=" d-flex flex-wrap align-items-center col-md-12">
-      <div class="col-md-3">
-        <h4 class="text-center"><i class="fa fa-frown text-primary"></i>残念だったところ<i class="fa fa-frown text-primary"></i></h4>
+      <div class="col-md-5 col-lg-3">
+        <h4 class="text-center font3"><i class="fa fa-frown text-primary"></i>残念だったところ<i class="fa fa-frown text-primary"></i></h4>
       </div>
-      <div class="text-break col-md-9">
-        <p class="ml-5 text-break"><%=safe_join(@review.bad_point.split("\n"),tag(:br))%></p>
+      <div class="col-md-7 col-lg-9">
+        <p class="ml-5 text-break font3"><%=safe_join(@review.bad_point.split("\n"),tag(:br))%></p>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row my-5">
     <div class="text-center col-12 mb-5">
-      <h4>総合評価</h4>
+      <h4 class="font3">総合評価</h4>
       <div class="evaluation" data-score="<%= @review.evaluation %>"></div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-5 text-center">
       <% if @review.user == current_user %>
-        <%= link_to "レビューを編集する", edit_review_path %>
-        <%= link_to "レビューを削除する", review_path, method: :delete %>
+        <div class="mb-4">
+          <%= link_to "レビューを編集する", edit_review_path(@review), class: "btn btn-success" %>
+        </div>
+        <div>
+          <%= link_to "レビューを削除する", review_path(@review), method: :delete, class: "btn btn-danger", data: { confirm: '本当に削除しますか？'} %>
+        </div>
       <% elsif admin_signed_in? %>
-        <%= link_to "レビューを削除する", review_path, method: :delete %>
+        <%= link_to "レビューを削除する", review_path(@review), method: :delete, class: "btn btn-danger", data: { confirm: '本当に削除しますか？'} %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12 d-flex flex-wrap">
       <!--コメント機能-->
-      <div class="col-md-4">
-        <h5>コメント</h5>
+      <div class="col-md-4 col-lg-4 border py-3">
+        <h5 class="font3 mb-4 text-center">コメント</h5>
         <% @review.comments.each do |comment| %>
-          <div class="mb-4">
-            <%= comment.user.name %>
-            <div class="text-break">
+          <div class="mb-5 border-bottom border-dark">
+            <div class="text-break mb-2">
               <%= comment.comment %>
             </div>
+            <%= attachment_image_tag comment.user, :profile_image, fallback: "blank-profill.png", size: "40x40" %>
+            <%= comment.user.name %>
             <% if comment.user == current_user || admin_signed_in? %>
-            <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete %>
+            <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, class: "text-danger" %>
             <% end %>
           </div>
         <% end %>
-        <% if user_signed_in? %>
-          <%= form_with(model:[@review, @comments], local: true) do |f| %>
-            <%= f.text_area :comment,placeholder: "コメントをここに" %>
-            <div>
-              <%= f.submit "送信する" %>
-            </div>
+        <div class="text-center">
+          <% if user_signed_in? %>
+            <%= form_with(model:[@review, @comments], local: true) do |f| %>
+              <%= f.text_area :comment,placeholder: "コメントをここに" %>
+              <div class="mt-3">
+                <%= f.submit "送信" %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
-        <div class="col-md-2"></div>
+      </div>
+
+        <div class="col-md-2 col-lg-2"></div>
         <!--通報機能-->
         <% if user_signed_in? || admin_signed_in? %>
-          <div class="col-lg-6 text-center">
+          <div class="col-lg-6 col-md-6 text-center">
             <% if admin_signed_in? || @review.reported_by?(current_user) %>
               <% @review.reports.each do |report| %>
                 <p><span class="text-danger">通報内容</span>：<%= report.report_text %></p>
                 <%= link_to "通報取り消し", review_report_path(report.review, report), method: :delete %>
               <% end %>
             <% else %>
-              <div class="switchdsp ">
+            <div class="switchdsp ">
               <label for="l-1">
               <span class="clicktxt"><i class="fa fa-exclamation-triangle text-warning"></i>通報する<i class="fa fa-exclamation-triangle text-warning"></i></span>
               </label>
