@@ -4,7 +4,7 @@
       <h1 class="text-center mb-4"><span class="badge badge-secondary font3">レビュー詳細</span></h1>
       <!--画像が添付されていれば表示する-->
       <% unless @review.image_id.nil? %>
-        <div class="mx-auto bg-light mb-5 col-md-12 col-sm-12">
+        <div class="mx-auto mb-5 col-md-12 col-sm-12">
           <%= attachment_image_tag @review, :image, size: "700x500", class: "d-block mx-auto" %>
         </div>
       <% end %>

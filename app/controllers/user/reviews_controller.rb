@@ -9,8 +9,12 @@ class User::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
-    redirect_to reviews_path
+    if @review.save
+      redirect_to reviews_path
+    else
+      @genres = Genre.all
+      render :new
+    end
   end
 
   def index
@@ -44,8 +48,12 @@ class User::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to reviews_path
+    if @review.update(review_params)
+      redirect_to reviews_path
+    else
+      @genres = Genre.all
+      render :edit
+    end
   end
 
   def destroy

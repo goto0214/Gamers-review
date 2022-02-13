@@ -4,10 +4,15 @@
   </div>
   <div class="row">
     <div class="col-12 my-4 mx-auto">
+      <%= render 'layouts/errors', obj: @genre %>
       <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
-        <div class="mb-3">
-          <%= f.text_field :genre_name, autofocus: true, placeholder: "ジャンル名を入力", size: "30x20" %>
-          <%= f.submit "ジャンル追加", class: "btn btn-info px-3 pl-4 pr-4 ml-5" %>
+        <div class="mb-3 d-flex flex-wrap">
+          <div>
+            <%= f.text_field :genre_name, autofocus: true, placeholder: "ジャンル名を入力", size: "30x20" %>
+          </div>
+          <div>
+            <%= f.submit "ジャンル追加", class: "btn btn-info px-3 pr-4 ml-5" %>
+          </div>
         </div>
       <% end %>
     </div>
