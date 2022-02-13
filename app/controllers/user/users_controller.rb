@@ -18,6 +18,10 @@ class User::UsersController < ApplicationController
     end
   end
 
+  def dummy
+  end
+
+
   private
 
   def user_params

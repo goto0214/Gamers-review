@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   root to: "user/homes#top"
   get "about" => "user/homes#about", as: "about"
 
+  get 'users' => 'user/users#dummy'
+
+
 
   scope module: :user do
     resources :reviews do
