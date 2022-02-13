@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      review:
+        title: ゲームタイトル
+        genre: ジャンル
+        good_point: 良かったところ
+        bad_point: 残念だったところ
+        evaluation: 総合評価
+      genre:
+        genre_name: ジャンル名
+      comment:
+        comment: コメント本文
+      report:
+        report_text: 通報内容
