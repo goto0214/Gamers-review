@@ -22,11 +22,11 @@ class User::SessionsController < Devise::SessionsController
 
   # ログイン後、トップページに遷移。
   def after_sign_in_path_for(resource)
-    root_path
+    reviews_path
   end
 
   # ログアウト後、トップページに遷移
   def after_sign_out_path_for(resource)
-    reviews_path
+    root_path
   end
 end
