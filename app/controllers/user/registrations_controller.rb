@@ -52,7 +52,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # 新規登録後、トップページに遷移。
   def after_sign_up_path_for(resource)
-    root_path
+    reviews_path
   end
 
   # The path used after sign up for inactive accounts.

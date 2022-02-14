@@ -20,7 +20,7 @@ class User::ReportsController < ApplicationController
   def report_params
     params.require(:report).permit(:report_text)
   end
-
+  
   def user_or_admin
     unless user_signed_in? || admin_signed_in?
       redirect_to root_path

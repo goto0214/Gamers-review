@@ -27,6 +27,6 @@ class User::SessionsController < Devise::SessionsController
 
   # ログアウト後、トップページに遷移
   def after_sign_out_path_for(resource)
-    root_path
+    reviews_path
   end
 end

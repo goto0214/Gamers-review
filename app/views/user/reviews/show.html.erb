@@ -56,31 +56,21 @@
       <!--コメント機能-->
       <div class="col-md-4 col-lg-4 border py-3">
         <h5 class="font3 mb-4 text-center">コメント</h5>
-        <% @review.comments.each do |comment| %>
-          <div class="mb-5 border-bottom border-dark">
-            <div class="text-break mb-2">
-              <%= comment.comment %>
-            </div>
-            <%= attachment_image_tag comment.user, :profile_image, fallback: "blank-profill.png", size: "40x40" %>
-            <%= comment.user.name %>
-            <% if comment.user == current_user || admin_signed_in? %>
-            <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, class: "text-danger" %>
-            <% end %>
-          </div>
-        <% end %>
+        <div id="comments-index">
+          <%= render 'user/comments/post_comments', review: @review %>
+        </div>
         <div class="text-center">
           <% if user_signed_in? %>
-            <%= form_with(model:[@review, @comments], local: true) do |f| %>
-              <%= f.text_area :comment,placeholder: "コメントをここに" %>
-              <div class="mt-3">
-                <%= f.submit "送信" %>
-              </div>
-            <% end %>
+              <%= form_with(model:[@review, @comment]) do |f| %>
+                <%= f.text_area :comment,placeholder: "コメントをここに" %>
+                <div class="mt-3">
+                  <%= f.submit "送信" %>
+                </div>
+              <% end %>
           <% end %>
         </div>
       </div>
-
-        <div class="col-md-2 col-lg-2"></div>
+      <div class="col-md-2 col-lg-2"></div>
         <!--通報機能-->
         <% if user_signed_in? || admin_signed_in? %>
           <div class="col-lg-6 col-md-6 text-center">

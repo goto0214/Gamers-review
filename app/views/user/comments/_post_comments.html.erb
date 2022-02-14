@@ -1,0 +1,12 @@
+<% review.comments.each do |comment| %>
+  <div class="mb-5 border-bottom border-dark">
+    <div class="text-break mb-2">
+      <%= comment.comment %>
+    </div>
+    <%= attachment_image_tag comment.user, :profile_image, fallback: "blank-profill.png", size: "40x40" %>
+    <%= comment.user.name %>
+    <% if comment.user == current_user || admin_signed_in? %>
+      <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true,class: "text-danger" %>
+    <% end %>
+  </div>
+<% end %>
