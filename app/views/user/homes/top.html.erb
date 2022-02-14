@@ -1,16 +1,22 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-12">
-      <div class="d-flex flex-wrap">
-        <h3>
-          <i class="fas fa-lightbulb text-warning"></i>
-          新着レビュー
-          <i class="fas fa-lightbulb text-warning"></i>
-        </h3>
-        <div class="ml-auto btn btn-success h3 btn-lg btn-outline-success">
-          <i class="fas fa-plus-circle"></i>
-            <%= link_to "レビュー投稿", new_review_path, class: "text-white link" %>
-          <i class="fas fa-plus-circle"></i>
+    <div class="col-md-12">
+      <div class="font3 text-center">
+        <h1 class="mb-5">Gamers-reviewへようこそ！！</h1>
+        <p>
+          レビューはアカウントを作成しなくても閲覧することができます！<br>
+          レビューの投稿・レビューへのコメントはアカウント作成が必要になります。
+        </p>
+      </div>
+      <div class="text-center mt-5">
+        <div class="mb-5">
+          <%= link_to "アカウントを作成する", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        </div>
+        <div class="mb-5">
+          <%= link_to " ログインする ", new_user_session_path, class: "btn btn-success btn-lg px-5" %>
+        </div>
+        <div class="mb-5">
+          <%= link_to "レビューを見る", reviews_path, class: "btn btn-warning btn-lg px-5" %>
         </div>
       </div>
     </div>
