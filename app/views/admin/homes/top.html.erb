@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="font3 text-center">
+        <h1 class="mb-5">Gamers-review管理者用ページです。</h1>
+      </div>
+      <div class="text-center mt-5">
+        <% if Report.exists? %>
+          <div class="mb-5">
+            <p class="fomt3 text-danger">通報されたレビューがあります。</p>
+            <%= link_to "通報されたレビュを確認する", admin_reports_index_path, class: "btn btn-danger btn-lg" %>
+          </div>
+        <% end %>
+        <div class="mb-5">
+          <%= link_to "ジャンル一覧・追加ページ", admin_genres_path, class: "btn btn-success btn-lg px-5" %>
+        </div>
+        <div class="mb-5">
+          <%= link_to "レビュー一覧ページ", reviews_path, class: "btn btn-warning btn-lg px-5" %>
+        </div>
+        <div class="mb-5">
+          <%= link_to "ユーザー一覧ページ", admin_users_path, class: "btn btn-info btn-lg px-5" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
