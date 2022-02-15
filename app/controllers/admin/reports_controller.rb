@@ -2,6 +2,7 @@ class Admin::ReportsController < ApplicationController
   before_action :admin_signed_in_or_root
 
   def index
+    # 通報されたレビューがあるかの確認
     if Report.exists?
       @reports = Report.all.includes(:review)
     else

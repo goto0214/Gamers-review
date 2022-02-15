@@ -50,7 +50,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # 新規登録後、トップページに遷移。
+  # 新規登録後、レビュー一覧ページに遷移。
   def after_sign_up_path_for(resource)
     reviews_path
   end

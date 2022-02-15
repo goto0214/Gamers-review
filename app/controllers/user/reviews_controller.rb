@@ -19,14 +19,16 @@ class User::ReviewsController < ApplicationController
 
   def index
     @genres = Genre.all
-    # ジャンルの名前リンクから飛んできたかの確認
+    # ↓ジャンルの名前リンクから飛んできた場合
     if params[:genre_id]
       genre = Genre.find(params[:genre_id])
       @reviews = Review.where(genre_id: genre.id).page(params[:page]).per(15).order(created_at: :desc)
+    # ↓検索窓に文言を入力してきた場合
     elsif params[:keyword]
-      # 検索窓で入力された値をkeywordに代入#
+      # 検索窓で入力された値をkeywordに代入
       keyword = params[:keyword]
       @reviews = Review.search(keyword).page(params[:page]).per(15)
+    # ↓タグのリンクから飛んできた場合
     elsif params[:tag_name]
       @reviews = Review.tagged_with("#{params[:tag_name]}").page(params[:page]).per(15)
     else
@@ -67,6 +69,7 @@ class User::ReviewsController < ApplicationController
     params.require(:review).permit(:user_id, :genre_id, :title, :image, :good_point, :bad_point, :evaluation, :tag_list)
   end
 
+  # ユーザーサインインもしくは管理者にサインインしてなければトップページに
   def user_or_admin
     if !user_signed_in? && !admin_signed_in?
       redirect_to root_path
