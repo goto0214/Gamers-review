@@ -14,7 +14,6 @@ class User::CommentsController < ApplicationController
       @report = Report.new
       render 'user/reviews/show'
     end
-
   end
 
   def destroy

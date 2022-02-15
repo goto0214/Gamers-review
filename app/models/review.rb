@@ -1,5 +1,4 @@
 class Review < ApplicationRecord
-
   acts_as_taggable
 
   belongs_to :user
@@ -17,13 +16,11 @@ class Review < ApplicationRecord
   # 検索のメソッド
   # 打ち込まれた文字を部分一致でレビューの中から探す。
   def self.search(keyword)
-    @review = Review.where("title LIKE?","%#{keyword}%")
+    @review = Review.where("title LIKE?", "%#{keyword}%")
   end
 
   # ユーザーが通報を既にしているか？
   def reported_by?(user)
-     reports.where(user_id: user.id).exists?
+    reports.where(user_id: user.id).exists?
   end
-
-
 end

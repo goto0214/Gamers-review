@@ -1,5 +1,5 @@
 class Admin::ReportsController < ApplicationController
-before_action :admin_signed_in_or_root
+  before_action :admin_signed_in_or_root
 
   def index
     if Report.exists?
@@ -17,5 +17,4 @@ before_action :admin_signed_in_or_root
       redirect_to root_path
     end
   end
-
 end

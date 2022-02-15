@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
-
-   # 利用者用ルーティング
+  # 利用者用ルーティング
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "user/registrations",
-    sessions: "user/sessions"
+    sessions: "user/sessions",
   }
 
   root to: "user/homes#top"
   get "about" => "user/homes#about", as: "about"
 
   get 'users' => 'user/users#dummy'
-
-
 
   scope module: :user do
     resources :reviews do
@@ -21,12 +18,9 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update, :show]
   end
 
-
-
-
-   # 管理者用ルーティング
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
+  # 管理者用ルーティング
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions",
   }
 
   namespace :admin do
@@ -35,7 +29,4 @@ Rails.application.routes.draw do
     get "reports" => "reports#index", as: "reports_index"
     resources :users, only: [:index, :show, :destroy]
   end
-
-
-
 end

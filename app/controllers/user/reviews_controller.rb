@@ -22,7 +22,7 @@ class User::ReviewsController < ApplicationController
     # ジャンルの名前リンクから飛んできたかの確認
     if params[:genre_id]
       genre = Genre.find(params[:genre_id])
-      @reviews = Review.where(genre_id:genre.id).page(params[:page]).per(15).order(created_at: :desc)
+      @reviews = Review.where(genre_id: genre.id).page(params[:page]).per(15).order(created_at: :desc)
     elsif params[:keyword]
       # 検索窓で入力された値をkeywordに代入#
       keyword = params[:keyword]
@@ -30,9 +30,8 @@ class User::ReviewsController < ApplicationController
     elsif params[:tag_name]
       @reviews = Review.tagged_with("#{params[:tag_name]}").page(params[:page]).per(15)
     else
-    @reviews = Review.page(params[:page]).per(15).order(created_at: :desc)
+      @reviews = Review.page(params[:page]).per(15).order(created_at: :desc)
     end
-
   end
 
   def show
@@ -62,7 +61,6 @@ class User::ReviewsController < ApplicationController
     redirect_to reviews_path
   end
 
-
   private
 
   def review_params
@@ -74,7 +72,4 @@ class User::ReviewsController < ApplicationController
       redirect_to root_path
     end
   end
-
-
 end
-

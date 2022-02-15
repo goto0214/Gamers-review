@@ -1,5 +1,5 @@
 class Admin::GenresController < ApplicationController
-before_action :admin_signed_in_or_root
+  before_action :admin_signed_in_or_root
 
   def index
     @genre = Genre.new
