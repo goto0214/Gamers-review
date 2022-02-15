@@ -4,9 +4,10 @@ inherit_from:
 Rails:
    Enabled: true
 
-# 文字数の上限を８０文字から変更
+# 文字数の上限を変更
 LineLength:
   Max: 130
+
   #検証したくないファイル
 AllCops:
   Exclude:
