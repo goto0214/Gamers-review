@@ -19,12 +19,12 @@ class User::ReviewsController < ApplicationController
 
   def index
     @genres = Genre.all
-    #ジャンルの名前リンクから飛んできたかの確認
+    # ジャンルの名前リンクから飛んできたかの確認
     if params[:genre_id]
       genre = Genre.find(params[:genre_id])
       @reviews = Review.where(genre_id:genre.id).page(params[:page]).per(15).order(created_at: :desc)
     elsif params[:keyword]
-      #検索窓で入力された値をkeywordに代入
+      # 検索窓で入力された値をkeywordに代入#
       keyword = params[:keyword]
       @reviews = Review.search(keyword).page(params[:page]).per(15)
     elsif params[:tag_name]

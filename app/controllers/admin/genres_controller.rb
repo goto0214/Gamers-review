@@ -37,14 +37,14 @@ before_action :admin_signed_in_or_root
 
   private
 
-    def genre_params
-      params.require(:genre).permit(:genre_name)
-    end
+  def genre_params
+    params.require(:genre).permit(:genre_name)
+  end
 
-    def admin_signed_in_or_root
-      unless admin_signed_in?
-        #管理者ログインしていない場合はtopページに行く
-        redirect_to root_path
-      end
+  def admin_signed_in_or_root
+    unless admin_signed_in?
+      # 管理者ログインしていない場合はtopページに行く
+      redirect_to root_path
     end
+  end
 end

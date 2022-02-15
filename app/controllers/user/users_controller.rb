@@ -18,7 +18,7 @@ class User::UsersController < ApplicationController
     end
   end
 
-  #サインアップ画面のエラー回避の為のアクションです。
+  # サインアップ画面のエラー回避の為のアクションです。
   def dummy
   end
 
