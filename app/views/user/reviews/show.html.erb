@@ -90,7 +90,7 @@
               <input type="checkbox" id="l-1">
               <div class="dsp mt-3">
                 <%= form_with(model:[@review, @report], local: true) do |f| %>
-                  <%= f.text_area :report_text,placeholder: "通報内容を記載してください。" %>
+                  <%= f.text_area :report_text,placeholder: "通報内容を記載してください。", class: "form-control" %>
                   <div class="mt-3">
                     <button type="submit">通報</button>
                   </div>
