@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get 'users' => 'user/users#dummy'
 
+  devise_scope :user do
+    post 'user/guest_sign_in', to: 'user/guests#guest_sign_in'
+  end
+
   scope module: :user do
     resources :reviews do
       resources :comments, only: [:create, :destroy]

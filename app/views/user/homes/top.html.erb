@@ -16,7 +16,10 @@
           <%= link_to " ログインする ", new_user_session_path, class: "btn btn-success btn-lg px-5" %>
         </div>
         <div class="mb-5">
-          <%= link_to "レビューを見る", reviews_path, class: "btn btn-warning btn-lg px-5" %>
+          <%= link_to "レビューを見る", reviews_path, class: "btn btn-warning btn-lg px-5 text-white" %>
+        </div>
+        <div class="mb-5">
+          <%= link_to "ゲストユーザーとしてログインする", user_guest_sign_in_path, method: :post, class: "btn btn-guest text-white" %>
         </div>
       </div>
     </div>
