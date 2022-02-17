@@ -14,5 +14,8 @@ Genre.create(genre_name: 'ノベルゲーム')
 Genre.create(genre_name: 'リズムゲーム')
 Genre.create(genre_name: 'レースゲーム')
 Genre.create(genre_name: '格闘ゲーム')
+Genre.create(genre_name: 'パズルゲーム')
+Genre.create(genre_name: 'パーティーゲーム')
+Genre.create(genre_name: 'タワーディフェンス')
 Admin.create(email: "ad@ad",
              password: "aaaaaa")
