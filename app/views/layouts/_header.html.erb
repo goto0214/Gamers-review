@@ -33,7 +33,7 @@
           <% elsif admin_signed_in? %>
             <li class="list-inline-item">
               <%= link_to admin_users_path, class: "btn btn-md btn-outline-light" do %>
-                <i class="fa fa-list"><span class="font2">ユーザーー覧</span></i>
+                <i class="fa fa-users"><span class="font2">ユーザーー覧</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
@@ -43,13 +43,13 @@
             </li>
             <li class="list-inline-item">
             <%= link_to  admin_genres_path, class: "btn btn-md btn-outline-light" do %>
-              <i class="fas fa-sign-out-alt"><span class="font2">ジャンル一覧</span></i>
+              <i class="fa fa-th-list"><span class="font2">ジャンル一覧</span></i>
             <% end %>
             </li>
             <% if Report.exists? %>
               <li class="list-inline-item">
               <%= link_to   admin_reports_index_path, class: "btn btn-md btn-outline-danger" do %>
-                <i class="fas fa-sign-out-alt"><span class="font2">通報一覧</span></i>
+                <i class="fa fa-exclamation-triangle"><span class="font2">通報一覧</span></i>
               <% end %>
               </li>
             <% end %>
@@ -66,7 +66,7 @@
             </li>
             <li class="list-inline-item">
               <%= link_to reviews_path, class: "btn btn-md btn-outline-light mr-2" do %>
-                <i class="fa fa-info-circle"><span class="font2">レビューー覧</span></i>
+                <i class="fa fa-list"><span class="font2">レビューー覧</span></i>
               <% end %>
             </li>
             <li class="list-inline-item">
