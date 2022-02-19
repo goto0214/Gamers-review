@@ -17,5 +17,5 @@ Genre.create(genre_name: '格闘ゲーム')
 Genre.create(genre_name: 'パズルゲーム')
 Genre.create(genre_name: 'パーティーゲーム')
 Genre.create(genre_name: 'タワーディフェンス')
-Admin.create(email: "ad@ad",
-             password: "aaaaaa")
+Admin.create(email: "admin@admin.com",
+             password: "adminorner")
