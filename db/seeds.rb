@@ -5,17 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Genre.create(genre_name: 'FPS')
-Genre.create(genre_name: 'コマンドRPG')
-Genre.create(genre_name: 'シュミレーションRPG')
-Genre.create(genre_name: 'アクションRPG')
-Genre.create(genre_name: 'オープンワールド')
-Genre.create(genre_name: 'ノベルゲーム')
-Genre.create(genre_name: 'リズムゲーム')
-Genre.create(genre_name: 'レースゲーム')
-Genre.create(genre_name: '格闘ゲーム')
-Genre.create(genre_name: 'パズルゲーム')
-Genre.create(genre_name: 'パーティーゲーム')
-Genre.create(genre_name: 'タワーディフェンス')
-Admin.create(email: "admin@admin.com",
-             password: "adminorner")
+Genre.create!(genre_name: 'FPS')
+Genre.create!(genre_name: 'コマンドRPG')
+Genre.create!(genre_name: 'シュミレーションRPG')
+Genre.create!(genre_name: 'アクションRPG')
+Genre.create!(genre_name: 'オープンワールド')
+Genre.create!(genre_name: 'ノベルゲーム')
+Genre.create!(genre_name: 'リズムゲーム')
+Genre.create!(genre_name: 'レースゲーム')
+Genre.create!(genre_name: '格闘ゲーム')
+Genre.create!(genre_name: 'パズルゲーム')
+Genre.create!(genre_name: 'パーティーゲーム')
+Genre.create!(genre_name: 'タワーディフェンス')
+Admin.create!(
+  email: ENV["EMAIL"],
+  password: ENV["PASSWORD"]
+  )
