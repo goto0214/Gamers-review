@@ -8,18 +8,20 @@
           レビューの投稿・レビューへのコメントはアカウント作成が必要になります。
         </p>
       </div>
-      <div class="text-center mt-5">
-        <div class="mb-5">
-          <%= link_to "アカウントを作成する", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-        </div>
-        <div class="mb-5">
-          <%= link_to " ログインする ", new_user_session_path, class: "btn btn-success btn-lg px-5" %>
-        </div>
-        <div class="mb-5">
-          <%= link_to "レビューを見る", reviews_path, class: "btn btn-warning btn-lg px-5 text-white" %>
-        </div>
-        <div class="mb-5">
-          <%= link_to "ゲストユーザーとしてログインする", user_guest_sign_in_path, method: :post, class: "btn btn-guest text-white" %>
+      <div class="mt-5 col-md-12">
+        <% unless user_signed_in? %>
+          <div class="mx-auto mb-5" style="width: 300px;">
+            <%= link_to "アカウントを作成する", new_user_registration_path, class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+          <div class="mx-auto mb-5" style="width: 300px;">
+            <%= link_to " ログインする ", new_user_session_path, class: "btn btn-success btn-lg px-5 btn-block" %>
+          </div>
+          <div class="mx-auto mb-5" style="width: 300px;">
+            <%= link_to "ゲストユーザーとしてログインする", user_guest_sign_in_path, method: :post, class: "btn btn-guest text-white btn-block" %>
+          </div>
+        <% end %>
+        <div class="mx-auto mb-5" style="width: 300px;">
+          <%= link_to "レビューを見る", reviews_path, class: "btn btn-warning btn-lg px-5 text-white btn-block" %>
         </div>
       </div>
     </div>

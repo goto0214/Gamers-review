@@ -9,7 +9,7 @@
         <% end %>
         <ul class="nav list-unstyled ml-auto float-right">
           <% if user_signed_in? %>
-            <li class="list-inline-item text-white h6 mr-5 pt-1 font2">ようこそ、<%= current_user.name %>さん！</li>
+            <li class="list-inline-item text-white h6 mr-2 pt-1 font2">ようこそ、<%= current_user.name %>さん！</li>
             <li class="list-inline-item">
               <%= link_to user_path(current_user), class: "btn btn-md btn-outline-light mr-2" do %>
                 <i class="fa fa-user"><span class="font2">マイプロフィール</span></i>

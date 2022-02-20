@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111519) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "genre_id", null: false
-    t.integer "uesr_id", null: false
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.string "image_id"
     t.text "good_point", null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111519) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.string "profile_iamge_id"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
