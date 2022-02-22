@@ -4,7 +4,7 @@ class Admin::ReportsController < ApplicationController
   def index
     # 通報されたレビューがあるかの確認
     if Report.exists?
-      @reports = Report.all.includes(:review)
+      @reports = Review.all.includes(:reports)
     else
       admin_root_path
     end

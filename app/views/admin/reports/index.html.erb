@@ -25,13 +25,13 @@
           <% @reports.each do |report| %>
             <tr>
               <td>
-                <%= link_to review_path(report.review) do %>
-                  <%= report.review.title %>
+                <%= link_to review_path(report) do %>
+                  <%= report.title %>
                 <% end %>
               </td>
-              <td><%= report.review.genre.genre_name %></td>
-              <td class="evaluation" data-score="<%= report.review.evaluation %>"></td>
-              <td><%= report.review.user.name %></td>
+              <td><%= report.genre.genre_name %></td>
+              <td class="evaluation" data-score="<%= report.evaluation %>"></td>
+              <td><%= report.user.name %></td>
             </tr>
           <% end %>
         </tbody>

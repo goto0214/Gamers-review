@@ -13,6 +13,8 @@ class Review < ApplicationRecord
   validates :bad_point, presence: true, length: { minimum: 30 }
   validates :evaluation, presence: true
 
+  is_impressionable counter_cache: true
+
   # 検索のメソッド
   # 打ち込まれた文字を部分一致でレビューの中から探す。
   def self.search(keyword)

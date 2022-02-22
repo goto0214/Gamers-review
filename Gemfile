@@ -75,7 +75,7 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-
+gem 'impressionist', '~>1.6.1'
 
 group :production do
   gem 'mysql2'

@@ -1,5 +1,5 @@
 class User::ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :destroy, :ranking]
   before_action :user_or_admin, only: [:destroy]
   def new
     @review = Review.new
@@ -40,11 +40,17 @@ class User::ReviewsController < ApplicationController
     @genres = Genre.all
     if params[:ranking_evaluation]
       @reviews = Review.page(params[:page]).per(15).order(evaluation: :desc)
+    elsif params[:ranking_view]
+      @reviews = Review.page(params[:page]).per(15).order(impressions_count: :desc)
+    else
+      redirect_to reviews_path
     end
   end
 
   def show
-    @review = Review.find(params[:id])
+    review = Review.find(params[:id])
+    impressionist(review, nil, unique: [:user_id])
+    @review = review
     @comment = Comment.new
     @report = Report.new
   end
