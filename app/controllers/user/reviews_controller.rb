@@ -48,9 +48,8 @@ class User::ReviewsController < ApplicationController
   end
 
   def show
-    review = Review.find(params[:id])
-    impressionist(review, nil, unique: [:user_id])
-    @review = review
+    @review = Review.find(params[:id])
+    impressionist(@review, nil, unique: [:ip_address]) # IPアドレスで閲覧数カウント
     @comment = Comment.new
     @report = Report.new
   end
