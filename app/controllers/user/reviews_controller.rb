@@ -36,6 +36,13 @@ class User::ReviewsController < ApplicationController
     end
   end
 
+  def ranking
+    @genres = Genre.all
+    if params[:ranking_evaluation]
+      @reviews = Review.page(params[:page]).per(15).order(evaluation: :desc)
+    end
+  end
+
   def show
     @review = Review.find(params[:id])
     @comment = Comment.new

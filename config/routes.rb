@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resources :reports, only: [:create, :destroy]
     end
+    get "ranking" => "reviews#ranking", as: "reviews_ranking"
     resources :users, only: [:edit, :update, :show]
   end
 
