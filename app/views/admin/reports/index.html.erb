@@ -2,7 +2,7 @@
   <div class="row mb-5">
     <div class="col-12">
       <div class="d-flex flex-wrap">
-        <h3 class="text-danger">
+        <h3 class="text-danger font3">
           <i class="fas fa-lightbulb text-warning"></i>
           通報されたレビュー
           <i class="fas fa-lightbulb text-warning"></i>
@@ -18,19 +18,19 @@
             <th>タイトル</th>
             <th>ジャンル</th>
             <th>総合評価</th>
-            <th>投稿者</th>
+            <th>通報者</th>
           </tr>
         </thead>
         <tbody>
           <% @reports.each do |report| %>
             <tr>
               <td>
-                <%= link_to review_path(report) do %>
-                  <%= report.title %>
+                <%= link_to review_path(report.review) do %>
+                  <%= report.review.title %>
                 <% end %>
               </td>
-              <td><%= report.genre.genre_name %></td>
-              <td class="evaluation" data-score="<%= report.evaluation %>"></td>
+              <td><%= report.review.genre.genre_name %></td>
+              <td class="evaluation" data-score="<%= report.review.evaluation %>"></td>
               <td><%= report.user.name %></td>
             </tr>
           <% end %>
