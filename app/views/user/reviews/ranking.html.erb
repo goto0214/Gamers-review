@@ -52,7 +52,7 @@
               <td><%= link_to review.genre.genre_name, reviews_path(genre_id: review.genre.id) %></td>
               <td><%= render 'user/reviews/tag_list', tag_list: review.tag_list %></td>
               <td class="evaluation" data-score="<%= review.evaluation %>"></td>
-              <td><%= review.impressions_count %>回</td>
+              <td><i class="fa fa-eye"></i><%= review.impressions_count %>回</td>
             </tr>
           <% end %>
         </tbody>
