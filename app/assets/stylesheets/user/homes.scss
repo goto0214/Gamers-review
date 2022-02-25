@@ -9,4 +9,9 @@
   color: #FFF;
   background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
   transition: .4s;
+  background-size: 200% 100%;
+}
+
+.btn-guest:hover{
+  background-position: 100% 0;
 }
