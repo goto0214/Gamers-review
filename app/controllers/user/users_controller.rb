@@ -31,6 +31,7 @@ class User::UsersController < ApplicationController
 
   def ensure_guest_user
     @user = User.find(params[:id])
+    # ユーザーネームが”ゲストユーザー”の場合、ユーザー詳細ページに飛ぶ
     if @user.name == "ゲストユーザー"
       redirect_to user_path(current_user)
     end

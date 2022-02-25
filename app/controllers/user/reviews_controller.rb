@@ -1,6 +1,6 @@
 class User::ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :destroy, :ranking]
-  before_action :user_or_admin, only: [:destroy]
+  before_action :user_or_admin?, only: [:destroy]
   def new
     @review = Review.new
     @genres = Genre.all
@@ -39,8 +39,10 @@ class User::ReviewsController < ApplicationController
   def ranking
     @genres = Genre.all
     if params[:ranking_evaluation]
+      # 評価高い順にデータ取得
       @reviews = Review.page(params[:page]).per(15).order(evaluation: :desc)
     elsif params[:ranking_view]
+      # 閲覧数が多い順にデータ取得
       @reviews = Review.page(params[:page]).per(15).order(impressions_count: :desc)
     else
       redirect_to reviews_path
@@ -82,7 +84,7 @@ class User::ReviewsController < ApplicationController
   end
 
   # ユーザーサインインもしくは管理者にサインインしてなければトップページに
-  def user_or_admin
+  def user_or_admin?
     if !user_signed_in? && !admin_signed_in?
       redirect_to root_path
     end
