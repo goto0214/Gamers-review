@@ -1,6 +1,6 @@
 class User::CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-  before_action :user_or_admin, only: [:destroy]
+  before_action :user_or_admin?, only: [:destroy]
 
   def create
     review = Review.find(params[:review_id])
@@ -27,7 +27,7 @@ class User::CommentsController < ApplicationController
     params.require(:comment).permit(:comment)
   end
 
-  def user_or_admin
+  def user_or_admin?
     if !user_signed_in? && !admin_signed_in?
       redirect_to root_path
     end
