@@ -9,8 +9,8 @@ class Review < ApplicationRecord
 
   # ↓バリデーション
   validates :title, presence: true
-  validates :good_point, presence: true, length: { minimum: 30 }
-  validates :bad_point, presence: true, length: { minimum: 30 }
+  validates :good_point, presence: true, length: { minimum: 30 } # 30文字以上
+  validates :bad_point, presence: true, length: { minimum: 30 } # 30文字以上
   validates :evaluation, presence: true
 
   is_impressionable counter_cache: true
