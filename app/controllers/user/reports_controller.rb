@@ -22,7 +22,7 @@ class User::ReportsController < ApplicationController
   end
 
   def user_or_admin?
-    # ユーザーもしくは管理者でログインしているか
+    # ユーザーもしくは管理者でログインしているか？
     if !user_signed_in? && !admin_signed_in?
       redirect_to root_path
     end
