@@ -31,6 +31,13 @@
             <% end %>
             </li>
           <% elsif admin_signed_in? %>
+            <% if Report.exists? %>
+              <li class="list-inline-item">
+              <%= link_to   admin_reports_index_path, class: "btn btn-md btn-outline-danger" do %>
+                <i class="fa fa-exclamation-triangle"><span class="font2">通報あり</span></i>
+              <% end %>
+              </li>
+            <% end %>
             <li class="list-inline-item">
               <%= link_to admin_users_path, class: "btn btn-md btn-outline-light" do %>
                 <i class="fa fa-users"><span class="font2">ユーザーー覧</span></i>
@@ -46,13 +53,6 @@
               <i class="fa fa-th-list"><span class="font2">ジャンル一覧</span></i>
             <% end %>
             </li>
-            <% if Report.exists? %>
-              <li class="list-inline-item">
-              <%= link_to   admin_reports_index_path, class: "btn btn-md btn-outline-danger" do %>
-                <i class="fa fa-exclamation-triangle"><span class="font2">通報一覧</span></i>
-              <% end %>
-              </li>
-            <% end %>
             <li class="list-inline-item">
             <%= link_to  destroy_admin_session_path, method: :delete, class: "btn btn-md btn-outline-light" do %>
               <i class="fas fa-sign-out-alt"><span class="font2">ログアウト</span></i>
