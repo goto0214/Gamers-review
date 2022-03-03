@@ -64,7 +64,7 @@
               <%= form_with(model:[@review, @comment]) do |f| %>
                 <%= f.text_area :comment,placeholder: "コメントをここに", class: "form-control" %>
                 <div class="mt-3">
-                  <%= f.submit "送信" %>
+                  <%= f.submit "送信", class: "btn btn-info" %>
                 </div>
               <% end %>
           <% end %>
