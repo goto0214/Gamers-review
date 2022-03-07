@@ -18,7 +18,6 @@ class User::SessionsController < Devise::SessionsController
   #   super
   # end
 
-
   protected
 
   # ログイン後、トップページに遷移。
