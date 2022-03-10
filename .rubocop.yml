@@ -8,7 +8,7 @@ Rails:
 LineLength:
   Max: 130
 
-  #検証したくないファイル
+  #検証しないファイル
 AllCops:
   Exclude:
     - 'db/**/*'
