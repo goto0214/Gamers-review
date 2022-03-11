@@ -24,11 +24,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12 col-md-12">
-      <div class="text-center">
-        <%= link_to "評価高い順", reviews_ranking_path(ranking_evaluation: "true") %>
+    <div class="col-lg-12 col-md-12 mb-5">
+      <div class="text-right">
+        <%= link_to "評価順", reviews_ranking_path(ranking_evaluation: "true")%>
         |
-        <%= link_to "閲覧数順", reviews_ranking_path(ranking_view: "true") %>
+        <%= link_to "閲覧数順", reviews_ranking_path(ranking_view: "true")%>
       </div>
     </div>
   </div>
@@ -40,7 +40,21 @@
           <% @reviews.each do |review| %>
             <div class="card ml-3 mb-5 col-md-5 d-block review-card mx-auto">
               <div class="card-img-top">
-                <%= attachment_image_tag review, :image,  fallback: "blank-profill.png", class: "img-size"%>
+                <%= link_to review_path(review) do %>
+                  <%= attachment_image_tag review, :image,  fallback: "blank-profill.png", class: "img-size"%>
+                <% end %>
+              </div>
+              <div class="card-body text-center">
+                <h4 class="card-title">
+                  <%= link_to review.title, review_path(review) %>
+                </h4>
+                <div class="evaluation" data-score="<%= review.evaluation %>"></div>
+                <p class="card-text mt-3">
+                  <%= link_to review.genre.genre_name, reviews_path(genre_id: review.genre.id) %>
+                </p>
+                <p class="card-text">
+                  <i class="fa fa-user"></i>：<%= review.user.name %>
+                </p>
               </div>
             </div>
           <% end %>
