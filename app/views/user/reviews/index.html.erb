@@ -41,7 +41,7 @@
         <div class="card ml-3 mb-5 col-md-5 d-block review-card mx-auto">
           <div class="card-img-top">
             <%= link_to review_path(review) do %>
-              <%= attachment_image_tag review, :image,  fallback: "blank-profill.png", class: "img-size"%>
+              <%= attachment_image_tag review, :image,  fallback: "no_image.jpg", class: "img-size"%>
             <% end %>
           </div>
           <div class="card-body text-center">
