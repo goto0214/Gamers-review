@@ -8,7 +8,7 @@ class User::CommentsController < ApplicationController
     comment.review_id = review.id
     if comment.save
       @review = review
-      #ヴァリデーションに引っかかった場合
+      #バリデーションに引っかかった場合
     else
       @review = review
       @comments = Comment.new
