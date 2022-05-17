@@ -75,9 +75,10 @@
         <% if user_signed_in? || admin_signed_in? %>
           <div class="col-lg-6 col-md-6 text-center">
             <% if admin_signed_in? || @review.reported_by?(current_user) %>
+            <h2 class="font3 text-danger">通報済み</h2>
               <% @review.reports.each do |report| %>
                 <% if report.user == current_user || admin_signed_in? %>
-                  <h5 class="font3 text-danger">通報済み</h5>
+
                   <p class="text-break"><span class="text-danger">通報内容</span>：<%= report.report_text %></p>
                   <%= link_to "通報取り消し", review_report_path(report.review, report), method: :delete %>
                 <% end %>
