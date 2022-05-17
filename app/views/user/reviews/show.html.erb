@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+  
   <div class="row my-5">
     <div class=" d-flex flex-wrap align-items-center col-md-12">
       <div class="col-md-5 col-lg-3">
@@ -31,12 +32,14 @@
       </div>
     </div>
   </div>
+  
   <div class="row my-5">
     <div class="text-center col-12 mb-5">
       <h4 class="font3">総合評価</h4>
       <div class="evaluation" data-score="<%= @review.evaluation %>"></div>
     </div>
   </div>
+  
   <div class="row">
     <div class="col-md-12 mb-5 text-center">
       <% if @review.user == current_user %>
@@ -51,6 +54,7 @@
       <% end %>
     </div>
   </div>
+  
   <div class="row">
     <div class="col-md-12 d-flex flex-wrap">
       <!--コメント機能-->
